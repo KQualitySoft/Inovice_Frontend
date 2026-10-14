@@ -1,4 +1,7 @@
-export const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5254';
+export const API_BASE = import.meta.env.VITE_API_BASE_URL !== undefined
+  ? import.meta.env.VITE_API_BASE_URL
+  : (import.meta.env.DEV ? 'http://localhost:5254' : '');
+
 
 async function request(endpoint, options = {}) {
   const url = endpoint.startsWith('http') ? endpoint : `${API_BASE}${endpoint}`;

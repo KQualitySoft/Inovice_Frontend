@@ -43,7 +43,10 @@ export default function Login() {
       navigate('/dashboard');
     } catch (err) {
       console.error('Login error:', err);
-      setServerError(err.message || 'Invalid credentials.');
+      const msg = err.message === 'Failed to fetch'
+        ? 'Cannot connect to backend server. Please check server connection.'
+        : (err.message || 'Invalid credentials.');
+      setServerError(msg);
     } finally {
       setLoading(false);
     }

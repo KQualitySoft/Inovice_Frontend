@@ -4,9 +4,9 @@ services:
       context: .
       dockerfile: Dockerfile
       args:
-        # Change this to your live backend API URL
-        VITE_API_BASE_URL: https://api.yourdomain.com
+        # Empty string uses relative /api path (proxied by Nginx)
+        VITE_API_BASE_URL: ""
     container_name: invoice_frontend
     restart: always
     ports:
-      - "80:80"
+      - "5050:80"

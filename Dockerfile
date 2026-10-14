@@ -12,8 +12,8 @@ RUN npm ci
 # Copy project files
 COPY . .
 
-# Accept backend API URL as build argument
-ARG VITE_API_BASE_URL=https://api.yourdomain.com
+# Accept backend API URL as build argument (empty string for relative /api path)
+ARG VITE_API_BASE_URL=""
 ENV VITE_API_BASE_URL=$VITE_API_BASE_URL
 
 # Build application
