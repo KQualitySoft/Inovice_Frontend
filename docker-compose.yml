@@ -1,0 +1,12 @@
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        # Change this to your live backend API URL
+        VITE_API_BASE_URL: https://api.yourdomain.com
+    container_name: invoice_frontend
+    restart: always
+    ports:
+      - "80:80"
